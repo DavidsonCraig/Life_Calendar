@@ -1,0 +1,111 @@
+body {
+    margin: 0px;
+    /* background-image: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%); */
+    background-color: #202124;
+}
+
+h1 {
+    margin: 0px;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 4vw;
+    letter-spacing: 6px;
+    word-spacing: 6px;
+    color: #2c586a;
+    font-weight: 400;
+    text-decoration: none;
+    font-style: normal;
+    font-variant: normal;
+    text-transform: none;
+    text-justify: center;
+    display: flex;
+}
+#clockBody {
+    background-color: #35363A;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#calendarBody {
+    display: grid;
+    grid-template-columns: repeat(83, 1.5vh);
+    grid-template-rows: repeat(52, 1.5vh);
+    grid-auto-flow: column;
+    height: 80vh;
+    padding: 5vh;
+    justify-content: center;
+    align-content: center;
+}
+
+#birthdayBody {
+    opacity: 0%;
+    display: grid;
+    grid-gap: 5vh;
+    height: 80vh;
+    justify-content: center;
+    align-content: center;
+}
+
+#birthdayInput {
+    display: grid;
+    border: 0px;
+    border-radius: 1vh;
+    width: 20vw;
+    height: 10vh;
+    background-color:#d3d4d5;
+    justify-content: center;
+    align-content: center;
+    font-size: 2vh;
+}
+
+#birthdaySubmit {
+    display: grid;
+    border: 0px;
+    border-radius: 1vh;
+    width: 20vw;
+    height: 10vh;
+    background-color:#d3d4d5;
+    justify-content: center;
+    align-content: center;
+    font-size: 3vh;
+    font-family: "Courier New", Courier, monospace;
+}
+
+.weekBox {
+    display: grid;
+    /* background-image: linear-gradient(90deg, #FDBB2D 0%, #3A1C71 100%); */
+    background-color: #6e798b;
+    background-attachment: fixed;
+    width: 1vh;
+    height: 1vh;
+    padding: 0vh;
+    border: 1px;
+    margin: 0px;
+    opacity: 50%;
+    border-radius: 1vh;
+}
+
+.weekBoxFilled {
+    display: grid;
+    /* background-image: linear-gradient(90deg, #FDBB2D 0%, #3A1C71 100%); */
+    background-color: #f8f8f8;
+    background-attachment: fixed;
+    width: 1vh;
+    height: 1vh;
+    padding: 0vh;
+    border: 1px;
+    margin: 0px;
+    opacity: 50%;
+    border-radius: 1vh;
+}
+
+.weekBoxSpacer {
+    display: grid;
+    width: 1vh;
+    height: 1vh;
+    padding: 0vh;
+    border: 1px;
+    margin: 0px;
+    border-radius: 1vh;
+}
