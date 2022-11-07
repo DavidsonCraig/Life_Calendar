@@ -37,14 +37,14 @@ function calculateWeeks(years, months, days) {
     for (let i = 1; i < months; i++) {
         userDayCounter += daysInMonth[i-1];
     }
-    userDayCounter += (years * 365);
+    userDayCounter += (years * 364);
 
     // Calculate current date days since 0/0/0000
     currentDayCounter += d.getDate();
-    for (let i = 1; i < d.getMonth() + 1; i++) {
-        currentDayCounter += daysInMonth[i-1];
+    for (let i = 0; i < d.getMonth(); i++) {
+        currentDayCounter += daysInMonth[i];
     }
-    currentDayCounter += (d.getFullYear() * 365);
+    currentDayCounter += (d.getFullYear() * 364);
 
     // Calculate how many days old user is and convert to weeks
     return Math.floor((currentDayCounter-userDayCounter)/7);
