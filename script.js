@@ -2,6 +2,23 @@ const WEEKSINYEAR = 52;
 let years = 80;
 checkStorage();
 
+function checkStorage() {
+    let birthYear = Number(localStorage.getItem("birthYear"));
+    let birthMonth = Number(localStorage.getItem("birthMonth"));
+    let birthDay = Number(localStorage.getItem("birthDay"));
+    if (birthYear > 0) {
+        let weeksOld = calculateWeeks(birthYear,birthMonth,birthDay);
+        removeBirthdayEntry();
+        setTime();
+        generateCalendar(years,WEEKSINYEAR);
+        fillCalendar(weeksOld);
+    } else {
+        let birthdayBody = document.getElementById("birthdayBody");
+        birthdayBody.style.opacity = "100%"
+        let clock = document.getElementById("clock");
+        clock.innerHTML = "Please enter your birthday";
+    }
+}
 
 function submitBirthday() {
     let currentDate = new Date;
@@ -18,7 +35,9 @@ function submitBirthday() {
     setTime();
     generateCalendar(years,WEEKSINYEAR);
     fillCalendar(weeksOld);
-    window.localStorage.setItem("weeksOld", weeksOld);
+    window.localStorage.setItem("birthYear", birthYear);
+    window.localStorage.setItem("birthMonth", birthMonth);
+    window.localStorage.setItem("birthDay", birthDay);
 }
 
 function removeBirthdayEntry() {
@@ -93,18 +112,4 @@ function fillCalendar(weeksOld) {
     }
 }
 
-function checkStorage() {
-    let weeksOld = Number(localStorage.getItem("weeksOld"));
-    if (weeksOld > 0) {
-        removeBirthdayEntry();
-        setTime();
-        generateCalendar(years,WEEKSINYEAR);
-        fillCalendar(weeksOld);
-    } else {
-        let birthdayBody = document.getElementById("birthdayBody");
-        birthdayBody.style.opacity = "100%"
-        let clock = document.getElementById("clock");
-        clock.innerHTML = "Please enter your birthday";
-    }
-}
 

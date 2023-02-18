@@ -1,22 +1,16 @@
 body {
     margin: 0px;
-    /* background-image: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%); */
     background-color: #202124;
 }
 
 h1 {
-    margin: 0px;
     font-family: "Courier New", Courier, monospace;
-    font-size: 4vw;
-    letter-spacing: 6px;
+    font-size:6vmin;
     word-spacing: 6px;
     color: #2c586a;
     font-weight: 400;
-    text-decoration: none;
-    font-style: normal;
-    font-variant: normal;
-    text-transform: none;
     text-justify: center;
+    text-align: center;
     display: flex;
 }
 #clockBody {
@@ -29,11 +23,11 @@ h1 {
 
 #calendarBody {
     display: grid;
-    grid-template-columns: repeat(83, 1.5vh);
-    grid-template-rows: repeat(52, 1.5vh);
+    grid-template-columns: repeat(83, 1.5vmin);
+    grid-template-rows: repeat(52, 1.5vmin);
     grid-auto-flow: column;
-    height: 80vh;
     padding: 5vh;
+    height: 80vh;
     justify-content: center;
     align-content: center;
 }
@@ -51,61 +45,70 @@ h1 {
     display: grid;
     border: 0px;
     border-radius: 1vh;
-    width: 20vw;
+    width: 40vw;
     height: 10vh;
     background-color:#d3d4d5;
     justify-content: center;
     align-content: center;
-    font-size: 2vh;
+    font-size: 3vmin;
 }
 
 #birthdaySubmit {
     display: grid;
     border: 0px;
     border-radius: 1vh;
-    width: 20vw;
+    width: 40vw;
     height: 10vh;
     background-color:#d3d4d5;
     justify-content: center;
     align-content: center;
-    font-size: 3vh;
+    font-size: 4vmin;
     font-family: "Courier New", Courier, monospace;
 }
 
 .weekBox {
-    display: grid;
-    /* background-image: linear-gradient(90deg, #FDBB2D 0%, #3A1C71 100%); */
     background-color: #6e798b;
-    background-attachment: fixed;
-    width: 1vh;
-    height: 1vh;
-    padding: 0vh;
-    border: 1px;
-    margin: 0px;
+    width: 1vmin;
+    height: 1vmin;
     opacity: 50%;
-    border-radius: 1vh;
+    border-radius: 1vmin;
+    align-self: center;
+    justify-self: center;
 }
 
 .weekBoxFilled {
-    display: grid;
-    /* background-image: linear-gradient(90deg, #FDBB2D 0%, #3A1C71 100%); */
     background-color: #f8f8f8;
-    background-attachment: fixed;
-    width: 1vh;
-    height: 1vh;
-    padding: 0vh;
-    border: 1px;
-    margin: 0px;
+    width: 1vmin;
+    height: 1vmin;
     opacity: 50%;
-    border-radius: 1vh;
+    border-radius: 1vmin;
+    align-self: center;
+    justify-self: center;
 }
 
 .weekBoxSpacer {
-    display: grid;
-    width: 1vh;
-    height: 1vh;
-    padding: 0vh;
-    border: 1px;
-    margin: 0px;
-    border-radius: 1vh;
+    width: 1vmin;
+    height: 1vmin;
+}
+
+@media screen and (orientation: portrait) {
+    #calendarBody {
+        grid-template-columns: repeat(52, 0.85vmax);
+        grid-template-rows: repeat(83, 0.85vmax);
+        grid-auto-flow: row;
+    }
+    .weekBox {
+        width: 0.5vmax;
+        height: 0.5vmax;
+    }
+    
+    .weekBoxFilled {
+        width: 0.5vmax;
+        height: 0.5vmax;
+    }
+    
+    .weekBoxSpacer {
+        width: 0.5vmax;
+        height: 0.5vmax;
+    }
 }
