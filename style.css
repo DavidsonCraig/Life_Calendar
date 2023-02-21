@@ -23,8 +23,9 @@ h1 {
 
 #calendarBody {
     display: grid;
-    grid-template-columns: repeat(83, 1.5vmin);
-    grid-template-rows: repeat(52, 1.5vmin);
+    transform: scale(0.1);
+    grid-template-columns: repeat(83, 15vmin);
+    grid-template-rows: repeat(52, 15vmin);
     grid-auto-flow: column;
     padding: 5vh;
     height: 80vh;
@@ -68,47 +69,47 @@ h1 {
 
 .weekBox {
     background-color: #6e798b;
-    width: 1vmin;
-    height: 1vmin;
+    width: 10vmin;
+    height: 10vmin;
     opacity: 50%;
-    border-radius: 1vmin;
+    border-radius: 10vmin;
     align-self: center;
     justify-self: center;
 }
 
 .weekBoxFilled {
     background-color: #f8f8f8;
-    width: 1vmin;
-    height: 1vmin;
+    width: 10vmin;
+    height: 10vmin;
     opacity: 50%;
-    border-radius: 1vmin;
+    border-radius: 10vmin;
     align-self: center;
     justify-self: center;
 }
 
 .weekBoxSpacer {
-    width: 1vmin;
-    height: 1vmin;
+    width: 10vmin;
+    height: 10vmin;
 }
 
 @media screen and (orientation: portrait) {
     #calendarBody {
-        grid-template-columns: repeat(52, 0.85vmax);
-        grid-template-rows: repeat(83, 0.85vmax);
+        grid-template-columns: repeat(52, 8.5vmax);
+        grid-template-rows: repeat(83, 8.5vmax);
         grid-auto-flow: row;
     }
     .weekBox {
-        width: 0.5vmax;
-        height: 0.5vmax;
+        width: 5vmax;
+        height: 5vmax;
     }
     
     .weekBoxFilled {
-        width: 0.5vmax;
-        height: 0.5vmax;
+        width: 5vmax;
+        height: 5vmax;
     }
     
     .weekBoxSpacer {
-        width: 0.5vmax;
-        height: 0.5vmax;
+        width: 5vmax;
+        height: 5vmax;
     }
 }
