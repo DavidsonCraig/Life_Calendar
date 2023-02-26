@@ -1,5 +1,6 @@
 const WEEKSINYEAR = 52;
 let years = 80;
+setTheme(localStorage.theme);
 checkStorage();
 
 function checkStorage() {
@@ -8,21 +9,33 @@ function checkStorage() {
     let birthDay = Number(localStorage.getItem("birthDay"));
     if (birthYear > 0) {
         let weeksOld = calculateWeeks(birthYear,birthMonth,birthDay);
+        let clock = localStorage.getItem("clock");
         removeBirthdayEntry();
-        setTime();
         generateCalendar(years,WEEKSINYEAR);
         fillCalendar(weeksOld);
+        if (clock == "true") {
+            setTime();
+        } else {
+            removeClock();
+        }
+        setTheme(localStorage.theme);
     } else {
         let birthdayBody = document.getElementById("birthdayBody");
-        birthdayBody.style.opacity = "100%"
         let clock = document.getElementById("clock");
+        let submitButton = document.getElementById('birthdaySubmit');
+        birthdayBody.style.opacity = "100%"
         clock.innerHTML = "Please enter your birthday";
+        submitButton.addEventListener('click', function(event){
+            submitBirthday();
+        });
     }
 }
 
 function submitBirthday() {
     let currentDate = new Date;
     let birthdate = document.getElementById("birthdayInput");
+    let theme = document.getElementById("themeCheckbox").checked;
+    let clock = document.getElementById("clockCheckbox").checked;
     let birthYear = Number(birthdate.value.substring(0,4));
     let birthMonth = Number(birthdate.value.substring(5,7));
     let birthDay = Number(birthdate.value.substring(8,10));
@@ -32,17 +45,19 @@ function submitBirthday() {
         return;
     }
     removeBirthdayEntry();
-    setTime();
     generateCalendar(years,WEEKSINYEAR);
     fillCalendar(weeksOld);
+    if (clock) {
+        setTime();
+    } else {
+        removeClock();
+    }
     window.localStorage.setItem("birthYear", birthYear);
     window.localStorage.setItem("birthMonth", birthMonth);
     window.localStorage.setItem("birthDay", birthDay);
-}
-
-function removeBirthdayEntry() {
-    let birthdayDiv = document.getElementById("birthdayBody");
-    birthdayDiv.remove();
+    window.localStorage.setItem("theme", theme);
+    window.localStorage.setItem("clock", clock);
+    setTheme(localStorage.theme);
 }
 
 function calculateWeeks(years, months, days) {
@@ -106,10 +121,41 @@ function setTime() {
     setTimeout(setTime,1000);
 }
 
+function removeClock() {
+    let clockBody = document.getElementById("clockBody");
+    clockBody.remove();
+    let x = document.getElementById("calendarBody")
+    x.style.height = "90vh"
+}
+
+function removeBirthdayEntry() {
+    let birthdayDiv = document.getElementById("birthdayBody");
+    birthdayDiv.remove();
+}
+
 function fillCalendar(weeksOld) {
     for (i = 1; i <= weeksOld; i++) {
         document.getElementById(`W${i}`).setAttribute("class","weekBoxFilled");
     }
 }
 
-
+function setTheme(theme) {
+    let root = document.documentElement;
+    if (theme == "true") {
+        root.style.setProperty("--backgroundColor", "#FFFFFF");
+        root.style.setProperty("--textColor", "#555F70");
+        root.style.setProperty("--clockColor", "#DEE1E6");
+        root.style.setProperty("--birthdayInputColor", "#d3d4d5");
+        root.style.setProperty("--weekBoxColor", "#DEE1E6");
+        root.style.setProperty("--weekBoxFilled", "#555F70");
+        root.style.setProperty("--opacity", "100%");
+    } else {
+        root.style.setProperty("--backgroundColor", "#202124");
+        root.style.setProperty("--textColor", "#2c586a");
+        root.style.setProperty("--clockColor", "#35363A");
+        root.style.setProperty("--birthdayInputColor", "#d3d4d5");
+        root.style.setProperty("--weekBoxColor", "#6e798b");
+        root.style.setProperty("--weekBoxFilled", "#f8f8f8");
+        root.style.setProperty("--opacity", "50%");
+    }
+}
