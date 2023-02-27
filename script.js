@@ -151,7 +151,7 @@ function setTheme(theme) {
         root.style.setProperty("--opacity", "100%");
     } else {
         root.style.setProperty("--backgroundColor", "#202124");
-        root.style.setProperty("--textColor", "#2c586a");
+        root.style.setProperty("--textColor", "#f8f8f8");
         root.style.setProperty("--clockColor", "#35363A");
         root.style.setProperty("--birthdayInputColor", "#d3d4d5");
         root.style.setProperty("--weekBoxColor", "#6e798b");
