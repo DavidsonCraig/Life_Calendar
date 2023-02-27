@@ -23,7 +23,7 @@ function checkStorage() {
         let birthdayBody = document.getElementById("birthdayBody");
         let clock = document.getElementById("clock");
         let submitButton = document.getElementById('birthdaySubmit');
-        birthdayBody.style.opacity = "100%"
+        birthdayBody.style.opacity = "100%";
         clock.innerHTML = "Please enter your birthday";
         submitButton.addEventListener('click', function(event){
             submitBirthday();
@@ -66,14 +66,14 @@ function calculateWeeks(years, months, days) {
     let userDayCounter = 0;
     let currentDayCounter = 0;
 
-    // Calculate user birthdate days since 0/0/0000
+    // Calculate number of days between user birthdate and 0/0/0000
     userDayCounter += days;
     for (let i = 1; i < months; i++) {
         userDayCounter += daysInMonth[i-1];
     }
     userDayCounter += (years * 364);
 
-    // Calculate current date days since 0/0/0000
+    // Calculate number of days between current day and 0/0/0000
     currentDayCounter += d.getDate();
     for (let i = 0; i < d.getMonth(); i++) {
         currentDayCounter += daysInMonth[i];
@@ -116,7 +116,7 @@ function generateCalendar(years, weeks) {
 function setTime() {
     const d = new Date();
     let clock = document.getElementById("clock");
-    let currentTime = d.toLocaleDateString() + " " + d.toLocaleTimeString()
+    let currentTime = d.toLocaleDateString() + " " + d.toLocaleTimeString();
     clock.innerHTML = currentTime;
     setTimeout(setTime,1000);
 }
@@ -124,8 +124,8 @@ function setTime() {
 function removeClock() {
     let clockBody = document.getElementById("clockBody");
     clockBody.remove();
-    let x = document.getElementById("calendarBody")
-    x.style.height = "90vh"
+    let x = document.getElementById("calendarBody");
+    x.style.height = "90vh";
 }
 
 function removeBirthdayEntry() {
