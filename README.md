@@ -5,4 +5,4 @@ This is a minimalist life calendar which hopefully visualises how precious our t
 
 ![image](https://user-images.githubusercontent.com/116437030/220450125-582b9d67-7375-4bcf-bb4e-bb3c39007e61.png)
 
-If you any any requests for features or experience any issues or bugs do not hesitate to contact me at craigdavidsondev@gmail.com
+If you any requests for features or experience any issues or bugs do not hesitate to contact me at craigdavidsondev@gmail.com
