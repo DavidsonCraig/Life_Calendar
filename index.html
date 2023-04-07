@@ -12,17 +12,21 @@
         <div id="clockBody">
             <h1 id="clock"></h1>
         </div>
-        <div id="birthdayBody">
-            <input type="date" id="birthdayInput" name="birthdayInput" required pattern="\d{4}-\d{2}-\d{2}">
-            <div class="checkboxContainer">
-                <h3>Light theme</h3>
-                <input type="checkbox" class="checkbox" id="themeCheckbox" name="themeCheckbox">
-            </div>
-            <div class="checkboxContainer">
-                <h3>Clock</h3>
-                <input type="checkbox" class="checkbox" id="clockCheckbox" name="clockCheckbox">
-            </div>
-            <input type="submit" name="submit" id="birthdaySubmit">
+        <div id="form">
+            <input type="date" id="birthdate" name="birthdate" required pattern="\d{4}-\d{2}-\d{2}">
+            <label for ="themeCheckbox">
+                <div class="checkboxContainer">
+                    <h3>Light theme</h3>
+                    <input type="checkbox" class="checkbox" id="themeCheckbox" name="themeCheckbox">
+                </div>
+            </label>
+            <label for="clockCheckbox">
+                <div class="checkboxContainer">
+                    <h3>Clock</h3>
+                    <input type="checkbox" class="checkbox" id="clockCheckbox" name="clockCheckbox">
+                </div>
+            </label>
+            <input type="button" name="submit" id="submit" value="Submit">
         </div>
         <script type="text/javascript" src="script.js"></script>
     </body>

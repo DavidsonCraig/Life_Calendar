@@ -7,6 +7,7 @@ function checkStorage() {
     let birthYear = Number(localStorage.getItem("birthYear"));
     let birthMonth = Number(localStorage.getItem("birthMonth"));
     let birthDay = Number(localStorage.getItem("birthDay"));
+    let clockBody = document.getElementById("clockBody");
     if (birthYear > 0) {
         let weeksOld = calculateWeeks(birthYear,birthMonth,birthDay);
         let clock = localStorage.getItem("clock");
@@ -14,16 +15,18 @@ function checkStorage() {
         generateCalendar(years,WEEKSINYEAR);
         fillCalendar(weeksOld);
         if (clock == "true") {
+            clockBody.style.opacity = "100%";
             setTime();
         } else {
             removeClock();
         }
         setTheme(localStorage.theme);
     } else {
-        let birthdayBody = document.getElementById("birthdayBody");
+        let form = document.getElementById("form");
         let clock = document.getElementById("clock");
-        let submitButton = document.getElementById('birthdaySubmit');
-        birthdayBody.style.opacity = "100%";
+        let submitButton = document.getElementById('submit');
+        form.style.opacity = "100%";
+        clockBody.style.opacity = "100%";
         clock.innerHTML = "Please enter your birthday";
         submitButton.addEventListener('click', function(event){
             submitBirthday();
@@ -33,7 +36,7 @@ function checkStorage() {
 
 function submitBirthday() {
     let currentDate = new Date;
-    let birthdate = document.getElementById("birthdayInput");
+    let birthdate = document.getElementById("birthdate");
     let theme = document.getElementById("themeCheckbox").checked;
     let clock = document.getElementById("clockCheckbox").checked;
     let birthYear = Number(birthdate.value.substring(0,4));
@@ -101,7 +104,7 @@ function generateCalendar(years, weeks) {
             calanderBody.appendChild(weekBox);
         }
         decadeCount++;
-        if (decadeCount >= 20) {
+        if (decadeCount >= 20 && i != years) {
             for (j = 1; j < weeks + 1; j++) {
                 let calanderBody = document.getElementById("calendarBody");
                 let weekBox = document.createElement("div");
@@ -129,7 +132,7 @@ function removeClock() {
 }
 
 function removeBirthdayEntry() {
-    let birthdayDiv = document.getElementById("birthdayBody");
+    let birthdayDiv = document.getElementById("form");
     birthdayDiv.remove();
 }
 
